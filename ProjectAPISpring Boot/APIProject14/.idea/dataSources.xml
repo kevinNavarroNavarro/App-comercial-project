@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Microsoft SQL Server - jdbc:sqlserver://163.178.173.148\ :1433;database=2020KADSupport" uuid="1e206878-704e-474c-9ff0-79b69ae793c1">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://163.178.173.148\ :1433;database=2020KADSupport</jdbc-url>
+    </data-source>
+  </component>
+</project>

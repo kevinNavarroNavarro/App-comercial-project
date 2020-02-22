@@ -7,5 +7,11 @@
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
       <jdbc-url>jdbc:sqlserver://163.178.173.148\ :1433;database=2020KADSupport</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Microsoft SQL Server - jdbc:sqlserver://163.178.107.130:3306;databaseName=2020KADSupport" uuid="171f07ea-cf98-4402-9318-3bcf64660613">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://163.178.107.130:3306;database=2020KADSupport</jdbc-url>
+    </data-source>
   </component>
 </project>

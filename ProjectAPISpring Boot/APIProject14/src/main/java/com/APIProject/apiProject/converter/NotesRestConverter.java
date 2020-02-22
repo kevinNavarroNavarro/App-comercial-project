@@ -14,12 +14,6 @@ import java.util.stream.Collectors;
 public class NotesRestConverter implements RestConverter<Notes, NotesDTO.Response, NotesDTO.Request> {
 
     @Autowired
-    SIssueRestConverter sIssueConverter = new SIssueRestConverter();
-    @Autowired
-    SupervisorRestConverter supervisorConverter = new SupervisorRestConverter();
-    @Autowired
-    SupporterRestConverter supporterConverter = new SupporterRestConverter();
-    @Autowired
     SIssueService sIssueService = new SIssueService();
     @Autowired
     SupervisorService supervisorService = new SupervisorService();
@@ -33,9 +27,6 @@ public class NotesRestConverter implements RestConverter<Notes, NotesDTO.Respons
         dto.setDescription(entity.getDescription());
         dto.setName(entity.getName());
         dto.setNoteTimestamp(entity.getNoteTimestamp());
-        dto.setsIssue(sIssueConverter.toResponse(entity.getIdIssue()));
-        dto.setSupervisor(supervisorConverter.toResponse(entity.getIdSupervisor()));
-        dto.setSupporter(supporterConverter.toResponse(entity.getIdSupport()));
         return dto;
     }
 

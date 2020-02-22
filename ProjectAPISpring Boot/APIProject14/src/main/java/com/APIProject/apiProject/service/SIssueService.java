@@ -1,6 +1,5 @@
 package com.APIProject.apiProject.service;
 
-
 import com.APIProject.apiProject.domain.business.SIssue;
 import com.APIProject.apiProject.exceptions.RecordNotFoundException;
 import com.APIProject.apiProject.repository.SIssueRepository;

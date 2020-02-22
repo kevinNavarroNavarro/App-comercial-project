@@ -2,10 +2,20 @@ package com.APIProject.apiProject.converter;
 
 import com.APIProject.apiProject.domain.business.Supervisor;
 import com.APIProject.apiProject.dto.SupervisorDTO;
+import com.APIProject.apiProject.service.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Service
 public class SupervisorRestConverter implements RestConverter<Supervisor, SupervisorDTO.Response, SupervisorDTO.Request> {
+
+    @Autowired
+    SIssueService sIssueService = new SIssueService();
+    @Autowired
+    NotesService serviceService = new NotesService();
 
     @Override
     public SupervisorDTO.Response toResponse(Supervisor entity) {
@@ -28,6 +38,13 @@ public class SupervisorRestConverter implements RestConverter<Supervisor, Superv
         entity.setSecondSurname(request.getSecondSurname());
         entity.setEmail(request.getEmail());
         entity.setPassword(request.getPassword());
+        entity.setIssue(sIssueService.find(request.getIssue()));
+        if (entity.getNotes() != null) {
+            entity.setNotes(new ArrayList<>());
+            entity.getNotes().addAll(request.getIdNotes().stream()
+                    .map(it -> serviceService.find(it))  //llamar a driver converter para convetir a driverDTO
+                    .collect(Collectors.toList()));
+        }
         return entity;
     }
 }

@@ -15,5 +15,19 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="Microsoft SQL Server - jdbc:sqlserver://163.178.107.130:3306;databaseName=2020KADSupport" uuid="171f07ea-cf98-4402-9318-3bcf64660613">
+      <database-info product="Microsoft SQL Server" version="14.00.3257" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.4 for SQL Server" driver-version="7.4.1.0" dbms="MSSQL" exact-version="14.0.3257">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>laboratorios</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="2020KADSupport" />
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
   </component>
 </project>

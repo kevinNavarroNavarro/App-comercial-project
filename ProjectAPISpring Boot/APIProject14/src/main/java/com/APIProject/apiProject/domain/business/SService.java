@@ -14,7 +14,7 @@ public class SService {
     @Column(name = "name")
     private String name;
 
-    @OneToOne(mappedBy = "service", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "service")
     private Supporter supporter;
 
     //Getters and setters

@@ -2,24 +2,22 @@ package com.APIProject.apiProject.converter;
 
 import com.APIProject.apiProject.domain.business.Supporter;
 import com.APIProject.apiProject.dto.SupporterDTO;
-import com.APIProject.apiProject.service.SIssueService;
-import com.APIProject.apiProject.service.SServiveService;
-import com.APIProject.apiProject.service.SupervisorService;
-import com.APIProject.apiProject.service.SupporterService;
+import com.APIProject.apiProject.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Service
 public class SupporterRestConverter implements RestConverter<Supporter, SupporterDTO.Response, SupporterDTO.Request> {
 
     @Autowired
-    SupervisorRestConverter supervisorConverter = new SupervisorRestConverter();
-    @Autowired
     SupervisorService supervisorService = new SupervisorService();
     @Autowired
-    ServiceRestConverter serviceConverter = new ServiceRestConverter();
-    @Autowired
     SServiveService sServiveService = new SServiveService();
+    @Autowired
+    NotesService notesService = new NotesService();
 
 
 
@@ -32,8 +30,6 @@ public class SupporterRestConverter implements RestConverter<Supporter, Supporte
         entity.setSecondSurname(request.getSecondSurname());
         entity.setEmail(request.getEmail());
         entity.setPassword(request.getPassword());
-        entity.setSupervisor(supervisorConverter.toResponse(request.getSupporter()));
-        entity.setService(serviceConverter.toResponse(request.getService()));
         return entity;
     }
 
@@ -46,6 +42,12 @@ public class SupporterRestConverter implements RestConverter<Supporter, Supporte
         entity.setSecondSurname(request.getSecondSurname());
         entity.setEmail(request.getEmail());
         entity.setPassword(request.getPassword());
+        if (entity.getNotes() != null) {
+            entity.setNotes(new ArrayList<>());
+            entity.getNotes().addAll(request.getNotes().stream()
+                    .map(it -> notesService.find(it))
+                    .collect(Collectors.toList()));
+        }
         entity.setSupporter(supervisorService.find(request.getSupporter()));
         entity.setService(sServiveService.find(request.getService()));
         return entity;

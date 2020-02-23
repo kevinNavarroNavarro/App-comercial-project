@@ -33,13 +33,13 @@ public class Supervisor {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "idSupervisor", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "idSupervisor")
     private List<Notes> notes;
 
-    @OneToOne(mappedBy = "supervisor", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "supervisor")
     private Supporter supporter;
 
-    @OneToOne(mappedBy = "supervisor", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "supervisor")
     private SIssue issue;
 
 
@@ -107,8 +107,6 @@ public class Supervisor {
     public void setIssue(SIssue issue) {
         this.issue = issue;
     }
-
-
 
     //toString
     @Override

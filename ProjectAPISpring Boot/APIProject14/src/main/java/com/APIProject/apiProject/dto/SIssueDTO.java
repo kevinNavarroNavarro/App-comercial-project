@@ -1,6 +1,7 @@
 package com.APIProject.apiProject.dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class SIssueDTO {
 
@@ -16,6 +17,8 @@ public class SIssueDTO {
         Date reportTimeStamp;
 
         String resolutionComment;
+
+        private List<Integer> notes;
 
         SupporterDTO.Response idSupporter;
 
@@ -84,6 +87,14 @@ public class SIssueDTO {
         public void setIdSupervisor(SupervisorDTO.Response idSupervisor) {
             this.idSupervisor = idSupervisor;
         }
+
+        public List<Integer> getNotes() {
+            return notes;
+        }
+
+        public void setNotes(List<Integer> notes) {
+            this.notes = notes;
+        }
     }
 
     public static class Request {
@@ -98,6 +109,9 @@ public class SIssueDTO {
         Date reportTimeStamp;
 
         String resolutionComment;
+
+        private List<Integer>  notes;
+
 
         Integer idSupporter;
 
@@ -165,6 +179,14 @@ public class SIssueDTO {
 
         public void setIdSupervisor(Integer idSupervisor) {
             this.idSupervisor = idSupervisor;
+        }
+
+        public List<Integer> getNotes() {
+            return notes;
+        }
+
+        public void setNotes(List<Integer> notes) {
+            this.notes = notes;
         }
     }
 

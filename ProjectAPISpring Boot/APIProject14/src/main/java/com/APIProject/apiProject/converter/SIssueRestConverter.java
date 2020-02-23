@@ -2,22 +2,24 @@ package com.APIProject.apiProject.converter;
 
 import com.APIProject.apiProject.domain.business.SIssue;
 import com.APIProject.apiProject.dto.SIssueDTO;
+import com.APIProject.apiProject.service.NotesService;
 import com.APIProject.apiProject.service.SupervisorService;
 import com.APIProject.apiProject.service.SupporterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 @Service
 public class SIssueRestConverter implements RestConverter<SIssue, SIssueDTO.Response, SIssueDTO.Request> {
 
     @Autowired
-    SupervisorRestConverter supervisorConverter = new SupervisorRestConverter();
-    @Autowired
     SupervisorService supervisorService = new SupervisorService();
     @Autowired
-    SupporterRestConverter supporterConverter = new SupporterRestConverter();
-    @Autowired
     SupporterService supporterService = new SupporterService();
+    @Autowired
+    NotesService notesService = new NotesService();
 
 
 
@@ -30,8 +32,6 @@ public class SIssueRestConverter implements RestConverter<SIssue, SIssueDTO.Resp
         dto.setReportTimeStamp(entity.getReportTimeStamp());
         dto.setResolutionComment(entity.getResolutionComment());
         dto.setStatus(entity.getStatus());
-        dto.setIdSupervisor(supervisorConverter.toResponse(entity.getSupervisor()));
-        dto.setIdSupporter(supporterConverter.toResponse(entity.getSupporter()));
         return dto;
     }
 
@@ -44,6 +44,12 @@ public class SIssueRestConverter implements RestConverter<SIssue, SIssueDTO.Resp
         entity.setReportTimeStamp(dto.getReportTimeStamp());
         entity.setResolutionComment(dto.getResolutionComment());
         entity.setStatus(dto.getStatus());
+        if (entity.getNotes() != null) {
+            entity.setNotes(new ArrayList<>());
+            entity.getNotes().addAll(dto.getNotes().stream()
+                    .map(it -> notesService.find(it))
+                    .collect(Collectors.toList()));
+        }
         entity.setSupervisor(supervisorService.find(dto.getIdSupervisor()));
         entity.setSupporter(supporterService.find(dto.getIdSupporter()));
         return entity;

@@ -38,11 +38,11 @@ public class SIssue {
     @OneToMany(mappedBy = "idIssue", fetch = FetchType.LAZY)
     private List<Notes> notes;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "supervisor_id", nullable = false)
     private Supervisor supervisor;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "supporter_id", nullable = false)
     private Supporter supporter;
 

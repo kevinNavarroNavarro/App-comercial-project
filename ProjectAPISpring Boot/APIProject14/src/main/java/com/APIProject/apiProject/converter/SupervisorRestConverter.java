@@ -15,7 +15,7 @@ public class SupervisorRestConverter implements RestConverter<Supervisor, Superv
     @Autowired
     SIssueService sIssueService = new SIssueService();
     @Autowired
-    NotesService serviceService = new NotesService();
+    NotesService notesService = new NotesService();
 
     @Override
     public SupervisorDTO.Response toResponse(Supervisor entity) {
@@ -38,13 +38,6 @@ public class SupervisorRestConverter implements RestConverter<Supervisor, Superv
         entity.setSecondSurname(request.getSecondSurname());
         entity.setEmail(request.getEmail());
         entity.setPassword(request.getPassword());
-        entity.setIssue(sIssueService.find(request.getIssue()));
-        if (entity.getNotes() != null) {
-            entity.setNotes(new ArrayList<>());
-            entity.getNotes().addAll(request.getIdNotes().stream()
-                    .map(it -> serviceService.find(it))  //llamar a driver converter para convetir a driverDTO
-                    .collect(Collectors.toList()));
-        }
         return entity;
     }
 }

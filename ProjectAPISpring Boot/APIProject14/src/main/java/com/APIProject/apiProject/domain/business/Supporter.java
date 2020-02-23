@@ -33,18 +33,18 @@ public class Supporter {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_service", nullable = false)
     private SService service;
 
     @OneToMany(mappedBy = "idSupport", fetch = FetchType.LAZY)
     private List<Notes> notes;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_supervisor", nullable = false)
     private Supervisor supervisor;
 
-    @OneToOne(mappedBy = "supporter", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "supporter", fetch = FetchType.LAZY)
     private SIssue issue;
 
     //Getters and Setters

@@ -19,11 +19,11 @@ public class Notes {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "supporter_id", nullable = false)
     private Supporter idSupport;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "supervisor_id",  nullable = false)
     private Supervisor idSupervisor;
 
@@ -31,7 +31,7 @@ public class Notes {
     @Column(name = "note_timestamp")
     private Date noteTimestamp;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "issue_id", nullable = false)
     private SIssue idIssue;
 
@@ -76,13 +76,9 @@ public class Notes {
         this.idSupervisor = idSupervisor;
     }
 
-    public SIssue getIdIssue() {
-        return idIssue;
-    }
+    public SIssue getIdIssue() { return idIssue; }
 
-    public void setIdIssue(SIssue idIssue) {
-        this.idIssue = idIssue;
-    }
+    public void setIdIssue(SIssue idIssue) { this.idIssue = idIssue; }
 
     public String getName() {
         return name;

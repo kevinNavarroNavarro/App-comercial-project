@@ -19,10 +19,6 @@ public class SupervisorDTO {
 
         List<Integer> idNotes;
 
-        SupporterDTO.Response supporter;
-
-        SIssueDTO.Response issue;
-
         public Integer getId() {
             return id;
         }
@@ -71,22 +67,14 @@ public class SupervisorDTO {
             this.password = password;
         }
 
-        public SupporterDTO.Response getSupporter() {
-            return supporter;
+
+        public List<Integer> getIdNotes() {
+            return idNotes;
         }
 
-        public void setSupporter(SupporterDTO.Response supporter) {
-            this.supporter = supporter;
+        public void setIdNotes(List<Integer> idNotes) {
+            this.idNotes = idNotes;
         }
-
-        public SIssueDTO.Response getIssue() {
-            return issue;
-        }
-
-        public void setIssue(SIssueDTO.Response issue) {
-            this.issue = issue;
-        }
-
     }
 
     public static class Request {
@@ -103,10 +91,6 @@ public class SupervisorDTO {
         String password;
 
         List<Integer> idNotes;
-
-        Integer supporter;
-
-        Integer issue;
 
         public Integer getId() {
             return id;
@@ -164,20 +148,5 @@ public class SupervisorDTO {
             this.idNotes = idNotes;
         }
 
-        public Integer getSupporter() {
-            return supporter;
-        }
-
-        public void setSupporter(Integer supporter) {
-            this.supporter = supporter;
-        }
-
-        public Integer getIssue() {
-            return issue;
-        }
-
-        public void setIssue(Integer issue) {
-            this.issue = issue;
-        }
     }
 }

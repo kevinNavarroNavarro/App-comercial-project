@@ -1,7 +1,5 @@
 package com.APIProject.apiProject.dto;
 
-import com.APIProject.apiProject.domain.business.Notes;
-
 import java.util.List;
 
 public class SupporterDTO {
@@ -20,6 +18,8 @@ public class SupporterDTO {
         String password;
 
         private List<Integer>  notes;
+
+        private List<Integer>  Issues;
 
         ServiceDTO.Response service;
 
@@ -96,6 +96,14 @@ public class SupporterDTO {
         public void setNotes(List<Integer> notes) {
             this.notes = notes;
         }
+
+        public List<Integer> getIssues() {
+            return Issues;
+        }
+
+        public void setIssues(List<Integer> issues) {
+            Issues = issues;
+        }
     }
 
     public static class Request {
@@ -112,6 +120,8 @@ public class SupporterDTO {
         String password;
 
         private List<Integer>  notes;
+
+        private List<Integer>  Issues;
 
         Integer service;
 
@@ -195,6 +205,14 @@ public class SupporterDTO {
 
         public void setSupervisor(Integer supervisor) {
             this.supervisor = supervisor;
+        }
+
+        public List<Integer> getIssues() {
+            return Issues;
+        }
+
+        public void setIssues(List<Integer> issues) {
+            Issues = issues;
         }
     }
 }

@@ -17,7 +17,13 @@ public class SupervisorDTO {
 
         String password;
 
+        List<Integer> Supporters;
+
         List<Integer> idNotes;
+
+        List<Integer> Issues;
+
+        private List<Integer> notes;
 
         public Integer getId() {
             return id;
@@ -74,6 +80,30 @@ public class SupervisorDTO {
 
         public void setIdNotes(List<Integer> idNotes) {
             this.idNotes = idNotes;
+        }
+
+        public List<Integer> getIssues() {
+            return Issues;
+        }
+
+        public void setIssues(List<Integer> issues) {
+            Issues = issues;
+        }
+
+        public List<Integer> getNotes() {
+            return notes;
+        }
+
+        public void setNotes(List<Integer> notes) {
+            this.notes = notes;
+        }
+
+        public List<Integer> getSupporters() {
+            return Supporters;
+        }
+
+        public void setSupporters(List<Integer> supporters) {
+            Supporters = supporters;
         }
     }
 
@@ -90,7 +120,13 @@ public class SupervisorDTO {
 
         String password;
 
+        List<Integer> Supporters;
+
         List<Integer> idNotes;
+
+        List<Integer> Issues;
+
+        private List<Integer> notes;
 
         public Integer getId() {
             return id;
@@ -148,5 +184,28 @@ public class SupervisorDTO {
             this.idNotes = idNotes;
         }
 
+        public List<Integer> getIssues() {
+            return Issues;
+        }
+
+        public void setIssues(List<Integer> issues) {
+            Issues = issues;
+        }
+
+        public List<Integer> getNotes() {
+            return notes;
+        }
+
+        public void setNotes(List<Integer> notes) {
+            this.notes = notes;
+        }
+
+        public List<Integer> getSupporters() {
+            return Supporters;
+        }
+
+        public void setSupporters(List<Integer> supporters) {
+            Supporters = supporters;
+        }
     }
 }

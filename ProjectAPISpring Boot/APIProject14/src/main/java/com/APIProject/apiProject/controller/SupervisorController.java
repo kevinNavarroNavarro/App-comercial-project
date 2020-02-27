@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "/supervisors")
+@RequestMapping(path = "/api/supervisors")
 @CrossOrigin
 public class SupervisorController {
 

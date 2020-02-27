@@ -18,6 +18,8 @@ public class SupporterRestConverter implements RestConverter<Supporter, Supporte
     SServiveService sServiveService = new SServiveService();
     @Autowired
     NotesService notesService = new NotesService();
+    @Autowired
+    SIssueService sIssueService = new SIssueService();
 
 
 
@@ -46,6 +48,12 @@ public class SupporterRestConverter implements RestConverter<Supporter, Supporte
             entity.setNotes(new ArrayList<>());
             entity.getNotes().addAll(request.getNotes().stream()
                     .map(it -> notesService.find(it))
+                    .collect(Collectors.toList()));
+        }
+        if (entity.getIssues() != null) {
+            entity.setIssues(new ArrayList<>());
+            entity.getIssues().addAll(request.getIssues().stream()
+                    .map(it -> sIssueService.find(it))
                     .collect(Collectors.toList()));
         }
         entity.setSupporter(supervisorService.find(request.getSupporter()));

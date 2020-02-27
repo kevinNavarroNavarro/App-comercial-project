@@ -112,7 +112,6 @@ public class SIssueDTO {
 
         private List<Integer>  notes;
 
-
         Integer idSupporter;
 
         Integer idSupervisor;

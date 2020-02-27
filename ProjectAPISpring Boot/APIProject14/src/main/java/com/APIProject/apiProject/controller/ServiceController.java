@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "/services")
+@RequestMapping(path = "/api/services")
 @CrossOrigin
 public class ServiceController {
 

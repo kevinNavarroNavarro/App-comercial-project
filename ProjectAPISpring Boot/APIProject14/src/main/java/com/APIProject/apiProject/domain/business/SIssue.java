@@ -38,15 +38,19 @@ public class SIssue {
     @OneToMany(mappedBy = "idIssue", fetch = FetchType.LAZY)
     private List<Notes> notes;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "supervisor_id", nullable = false)
-    private Supervisor supervisor;
+    private Supervisor supervisors;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "supporter_id", nullable = false)
-    private Supporter supporter;
+    private Supporter supporters;
 
     //Getters and Setters
+    public Supervisor getSupervisors() { return supervisors; }
+
+    public void setSupervisors(Supervisor supervisors) { this.supervisors = supervisors; }
+
     public Integer getId() {
         return id;
     }
@@ -107,20 +111,10 @@ public class SIssue {
         this.notes = notes;
     }
 
-    public Supporter getSupporter() {
-        return supporter;
-    }
+    public Supporter getSupporters() { return supporters; }
 
-    public void setSupporter(Supporter supporter) {
-        this.supporter = supporter;
-    }
-
-    public Supervisor getSupervisor() {
-        return supervisor;
-    }
-
-    public void setSupervisor(Supervisor supervisor) {
-        this.supervisor = supervisor;
+    public void setSupporters(Supporter supporters) {
+        this.supporters = supporters;
     }
 
     //toString
@@ -134,8 +128,8 @@ public class SIssue {
                 ", reportTimeStamp=" + reportTimeStamp +
                 ", resolutionComment='" + resolutionComment + '\'' +
                 ", notes=" + notes +
-                ", supporter=" + supporter +
-                ", supervisor=" + supervisor +
+                ", supervisors=" + supervisors +
+                ", supporters=" + supporters +
                 '}';
     }
 }

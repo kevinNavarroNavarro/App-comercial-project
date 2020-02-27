@@ -34,7 +34,7 @@ public class SServiveService {
         return repository
                 .findById(id)
                 .orElseThrow(
-                        () -> new RecordNotFoundException(SService.class.getName()));
+                        () -> new RecordNotFoundException(SService.class, id));
     }
 }
 

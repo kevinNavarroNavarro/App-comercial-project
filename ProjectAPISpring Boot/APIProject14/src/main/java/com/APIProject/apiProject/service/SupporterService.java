@@ -42,7 +42,7 @@ public class SupporterService {
         return repository
                 .findById(id)
                 .orElseThrow(
-                        () -> new RecordNotFoundException(Supporter.class.getName()));
+                        () -> new RecordNotFoundException(Supporter.class, id));
     }
 }
 

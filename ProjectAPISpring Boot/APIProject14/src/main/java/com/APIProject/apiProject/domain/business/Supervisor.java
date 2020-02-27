@@ -36,11 +36,11 @@ public class Supervisor {
     @OneToMany(mappedBy = "idSupervisor")
     private List<Notes> notes;
 
-    @OneToOne(mappedBy = "supervisor")
-    private Supporter supporter;
+    @OneToMany(mappedBy = "supervisor")
+    private List<Supporter> supporters;
 
-    @OneToOne(mappedBy = "supervisor")
-    private SIssue issue;
+    @OneToMany(mappedBy = "supervisors")
+    private List<SIssue> issues;
 
 
     //Getters and Setters
@@ -100,12 +100,20 @@ public class Supervisor {
         this.notes = notes;
     }
 
-    public SIssue getIssue() {
-        return issue;
+    public List<Supporter> getSupporters() {
+        return supporters;
     }
 
-    public void setIssue(SIssue issue) {
-        this.issue = issue;
+    public void setSupporters(List<Supporter> supporters) {
+        this.supporters = supporters;
+    }
+
+    public List<SIssue> getIssues() {
+        return issues;
+    }
+
+    public void setIssues(List<SIssue> issues) {
+        this.issues = issues;
     }
 
     //toString
@@ -119,7 +127,8 @@ public class Supervisor {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", notes=" + notes +
-                ", issue=" + issue +
+                ", supporters=" + supporters +
+                ", issues=" + issues +
                 '}';
     }
 }

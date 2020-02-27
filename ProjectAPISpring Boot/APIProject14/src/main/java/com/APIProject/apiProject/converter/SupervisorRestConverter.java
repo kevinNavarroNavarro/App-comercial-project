@@ -2,7 +2,8 @@ package com.APIProject.apiProject.converter;
 
 import com.APIProject.apiProject.domain.business.Supervisor;
 import com.APIProject.apiProject.dto.SupervisorDTO;
-import com.APIProject.apiProject.service.*;
+import com.APIProject.apiProject.service.NotesService;
+import com.APIProject.apiProject.service.SIssueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +39,12 @@ public class SupervisorRestConverter implements RestConverter<Supervisor, Superv
         entity.setSecondSurname(request.getSecondSurname());
         entity.setEmail(request.getEmail());
         entity.setPassword(request.getPassword());
+        if (entity.getIssues() != null) {
+            entity.setIssues(new ArrayList<>());
+            entity.getIssues().addAll(request.getIssues().stream()
+                    .map(it -> sIssueService.find(it))
+                    .collect(Collectors.toList()));
+        }
         return entity;
     }
 }

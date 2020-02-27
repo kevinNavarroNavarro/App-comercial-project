@@ -40,12 +40,12 @@ public class Supporter {
     @OneToMany(mappedBy = "idSupport", fetch = FetchType.LAZY)
     private List<Notes> notes;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_supervisor", nullable = false)
     private Supervisor supervisor;
 
-    @OneToOne(mappedBy = "supporter", fetch = FetchType.LAZY)
-    private SIssue issue;
+    @OneToMany(mappedBy = "supporters", fetch = FetchType.LAZY)
+    private List<SIssue> issues;
 
     //Getters and Setters
     public Integer getId() {
@@ -118,12 +118,12 @@ public class Supporter {
         this.supervisor = supporter;
     }
 
-    public SIssue getIssue() {
-        return issue;
+    public List<SIssue> getIssues() {
+        return issues;
     }
 
-    public void setIssue(SIssue issue) {
-        this.issue = issue;
+    public void setIssues(List<SIssue> issues) {
+        this.issues = issues;
     }
 
     public Supervisor getSupervisor() {
@@ -147,7 +147,7 @@ public class Supporter {
                 ", service=" + service +
                 ", notes=" + notes +
                 ", supporter=" + supervisor +
-                ", issue=" + issue +
+                ", issue=" + issues +
                 '}';
     }
 }

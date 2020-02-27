@@ -43,7 +43,7 @@ public class SupervisorService {
         return repository
                 .findById(id)
                 .orElseThrow(
-                        ()-> new RecordNotFoundException(Supervisor.class.getName()));
+                        ()-> new RecordNotFoundException(Supervisor.class, id));
     }
 }
 

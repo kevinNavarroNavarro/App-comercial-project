@@ -41,7 +41,7 @@ public class SIssueService {
         return repository
                 .findById(id)
                 .orElseThrow(
-                        () -> new RecordNotFoundException(SIssue.class.getName()));
+                        () -> new RecordNotFoundException(SIssue.class, id));
     }
 }
 

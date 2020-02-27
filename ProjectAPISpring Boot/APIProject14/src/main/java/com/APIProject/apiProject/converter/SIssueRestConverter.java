@@ -50,8 +50,8 @@ public class SIssueRestConverter implements RestConverter<SIssue, SIssueDTO.Resp
                     .map(it -> notesService.find(it))
                     .collect(Collectors.toList()));
         }
-        entity.setSupervisor(supervisorService.find(dto.getIdSupervisor()));
-        entity.setSupporter(supporterService.find(dto.getIdSupporter()));
+        entity.setSupervisors(supervisorService.find(dto.getIdSupervisor()));
+        entity.setSupporters(supporterService.find(dto.getIdSupporter()));
         return entity;
     }
 }

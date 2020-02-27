@@ -34,7 +34,7 @@ public class NotesService {
         return repository
                 .findById(id)
                 .orElseThrow(
-                        () -> new RecordNotFoundException(Notes.class.getName()));
+                        () -> new RecordNotFoundException(Notes.class, id));
     }
 }
 

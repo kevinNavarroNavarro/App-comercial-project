@@ -6,14 +6,12 @@ import com.APIProject.apiProject.dto.SIssueDTO;
 import com.APIProject.apiProject.service.SIssueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
-
 import static java.lang.Integer.parseInt;
 
 @RestController
-@RequestMapping(path="/issues")
+@RequestMapping(path="/api/issues")
 @CrossOrigin
 public class SIssueController {
 

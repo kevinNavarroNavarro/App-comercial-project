@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(path = "/supporters")
+@RequestMapping(path = "/api/supporters")
 @CrossOrigin
 public class SupporterController {
 

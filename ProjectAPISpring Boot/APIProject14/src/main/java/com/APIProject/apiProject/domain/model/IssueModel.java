@@ -1,33 +1,44 @@
 package com.APIProject.apiProject.domain.model;
 
+import java.util.Date;
+
 import static com.APIProject.apiProject.util.JsonUtil.toJson;
 
 public class IssueModel {
-    private String address;
-    private String email;
+    private String Address;
+    private String Client;
     private Integer phone;
     private String description;
     private Integer id;
     private Integer idClient;
-    private String reportTimestamp;
+    private Integer SupportUserAssigned;
+    private Date reportTimestamp;
     private String service;
     private String status;
 
     //Getters and Setters
     public String getAddress() {
-        return address;
+        return Address;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        Address = address;
     }
 
-    public String getEmail() {
-        return email;
+    public String getClient() {
+        return Client;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setClient(String client) {
+        Client = client;
+    }
+
+    public Integer getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Integer phone) {
+        this.phone = phone;
     }
 
     public String getDescription() {
@@ -54,11 +65,19 @@ public class IssueModel {
         this.idClient = idClient;
     }
 
-    public String getReportTimestamp() {
+    public Integer getSupportUserAssigned() {
+        return SupportUserAssigned;
+    }
+
+    public void setSupportUserAssigned(Integer supportUserAssigned) {
+        SupportUserAssigned = supportUserAssigned;
+    }
+
+    public Date getReportTimestamp() {
         return reportTimestamp;
     }
 
-    public void setReportTimestamp(String reportTimestamp) {
+    public void setReportTimestamp(Date reportTimestamp) {
         this.reportTimestamp = reportTimestamp;
     }
 
@@ -76,14 +95,6 @@ public class IssueModel {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Integer getPhone() {
-        return phone;
-    }
-
-    public void setPhone(Integer phone) {
-        this.phone = phone;
     }
 
     @Override

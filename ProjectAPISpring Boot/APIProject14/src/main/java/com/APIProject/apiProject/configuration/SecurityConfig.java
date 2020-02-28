@@ -18,7 +18,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.addFilterAfter(new FuelControlAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/api/login").permitAll()
+                .antMatchers("/api/loginSupervisor").permitAll()
+                .antMatchers("/api/loginSupporter").permitAll()
                 .antMatchers("/swagger-ui.html").permitAll()
                 .antMatchers("/h2/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/**/**").authenticated()

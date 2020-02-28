@@ -16,7 +16,6 @@ public class ErrorHandler implements ResponseErrorHandler {
 
     @Override
     public void handleError(ClientHttpResponse response) throws IOException {
-
         ObjectMapper mapper = new ObjectMapper();
         ErrorDetailsClientAPI details = mapper.readValue(toString(response.getBody()), ErrorDetailsClientAPI.class);
         throw new APIProjectException(details);

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-@ComponentScan("com.APIProject.apiProject")
+@ComponentScan("com.APIProject.apiProject.api")
 public class AppConfig {
 
     @Bean
@@ -21,5 +21,4 @@ public class AppConfig {
     public ErrorHandler errorHandler() {
         return new ErrorHandler();
     }
-
 }

@@ -3,17 +3,14 @@ package com.APIProject.apiProject;
 import com.APIProject.apiProject.api.IssueClientService;
 import com.APIProject.apiProject.configuration.AppConfig;
 import com.APIProject.apiProject.exceptions.APIProjectException;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootApplication
 public class ApiProjectApplication {
 
-	private static final Long INVALID_DRIVER_ID = -1L;
-
 	public static void main(String[] args) {
-		SpringApplication.run(ApiProjectApplication.class, args);
+//		SpringApplication.run(ApiProjectApplication.class, args);
 
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
@@ -21,7 +18,9 @@ public class ApiProjectApplication {
 //
 		try {
 			print("Getting all Issues:");
-			client.finAll().forEach(ApiProjectApplication::print);
+		client.finAll().forEach(ApiProjectApplication::print);
+//			System.out.println(client.findById(1));
+
 //
 ////			print("Getting Invalid:");
 ////			gettingInvalidIssue(client);

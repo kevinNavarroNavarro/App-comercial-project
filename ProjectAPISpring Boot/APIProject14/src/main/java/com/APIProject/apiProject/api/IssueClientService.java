@@ -1,6 +1,7 @@
 package com.APIProject.apiProject.api;
 
 import com.APIProject.apiProject.domain.business.SIssue;
+import com.APIProject.apiProject.domain.model.SIssueModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -15,30 +16,30 @@ public class IssueClientService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String ROOT_URI = "http://192.168.1.101:59267";
+    private final String ROOT_URI = "http://192.168.1.101:59267/api/Issue/";
 
-    public List<SIssue> finAll() {
-        ResponseEntity<SIssue[]> response = restTemplate.getForEntity(ROOT_URI, SIssue[].class);
+    public List<SIssueModel> finAll() {
+        ResponseEntity<SIssueModel[]> response = restTemplate.getForEntity(ROOT_URI, SIssueModel[].class);
         return Arrays.asList(response.getBody());
     }
 
-    public SIssue findById(Long id) {
-        ResponseEntity<SIssue> response =
+    public SIssueModel findById(int id) {
+        ResponseEntity<SIssueModel> response =
                 restTemplate.getForEntity(ROOT_URI
-                        + "/" + id, SIssue.class);
+                        + "/" + id, SIssueModel.class);
         return response.getBody();
     }
 
-    public SIssue add(SIssue person) {
-        ResponseEntity<SIssue> response =
+    public SIssueModel add(SIssue person) {
+        ResponseEntity<SIssueModel> response =
                 restTemplate.postForEntity(ROOT_URI,
-                        person, SIssue.class);
+                        person, SIssueModel.class);
         return response.getBody();
     }
 
-    public void update(SIssue issue, Long id) {
+    public void update(SIssueModel issue, int id) {
         restTemplate
-                .put(ROOT_URI+ "/" + id, issue, SIssue.class);
+                .put(ROOT_URI+ "/" + id, issue, SIssueModel.class);
     }
 
     public void delete(Long id) {

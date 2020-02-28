@@ -44,13 +44,16 @@ public class SessionController {
 
     @RequestMapping(method = RequestMethod.POST, path = "/api/loginSupervisor")
     public SupervisorDTO.Response loginSupervisor(@RequestBody LoginDTO user) {
-        if (sessionService.validateSupporter(user.getUserName(), user.getPassword())) {
+        if (sessionService.validateSupervisor(user.getUserName(), user.getPassword())) {
             String token = sessionService.buildTokenSupervisor(user.getUserName());
             SupervisorDTO.Response result = new SupervisorDTO.Response();
             result.setEmail(user.getUserName());
             result.setToken(token);
             Supervisor supervisor = supervisorService.findEmail(user.getUserName());
             result.setId(supervisor.getId());
+            result.setName(supervisor.getName());
+            result.setFirstSurname(supervisor.getFirstSurname());
+            result.setSecondSurname(supervisor.getSecondSurname());
             return result;
         }
         throw new InvalidCredentialsException();

@@ -6,6 +6,7 @@ import com.APIProject.apiProject.repository.SupervisorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SupervisorService {
@@ -35,8 +36,9 @@ public class SupervisorService {
     public List<Supervisor> findAll() {
         return repository.findAll();
     }
-    public List<Supervisor> findAllByDriver() {
-        return repository.findAll();
+
+    public Optional<Supervisor> findByEmail(String email) {
+        return repository.findByEmail(email);
     }
 
     public Supervisor find(Integer id) {

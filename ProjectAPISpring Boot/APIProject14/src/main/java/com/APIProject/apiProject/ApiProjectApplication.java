@@ -19,7 +19,7 @@ public class ApiProjectApplication {
 //
 		try {
 			print("Getting all Issues:");
-			client.finAll().forEach(ApiProjectApplication::print);
+//			client.finAll().forEach(ApiProjectApplication::print);
 //			System.out.println(client.findById(1));
 
 //

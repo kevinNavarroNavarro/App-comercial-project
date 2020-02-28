@@ -2,7 +2,7 @@ package com.APIProject.apiProject.service.security;
 
 import com.APIProject.apiProject.domain.business.Supervisor;
 import com.APIProject.apiProject.exceptions.RecordNotFoundException;
-import com.APIProject.apiProject.repository.security.SSupervisorRepository;
+import com.APIProject.apiProject.repository.SupervisorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,7 +17,7 @@ import java.util.Optional;
 public class SSupervisorService implements UserDetailsService {
 
     @Autowired
-    private SSupervisorRepository repository;
+    private SupervisorRepository repository;
 
     public Supervisor save(Supervisor user) {
         return repository.save(user);
@@ -36,7 +36,6 @@ public class SSupervisorService implements UserDetailsService {
         return repository.findAll();
     }
 
-
     public Supervisor find(Integer id) {
         return repository
                 .findById(id)
@@ -46,6 +45,10 @@ public class SSupervisorService implements UserDetailsService {
 
     public Optional<Supervisor> findByEmail(String email) {
         return repository.findByEmail(email);
+    }
+
+    public Supervisor findEmail(String email) {
+        return repository.findEmail(email);
     }
 
     @Override

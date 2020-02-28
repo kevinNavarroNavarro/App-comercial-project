@@ -9,6 +9,7 @@ import java.util.List;
 
 @org.springframework.stereotype.Service
 public class SServiveService {
+
     @Autowired
     private SServiveRepository repository;
 

@@ -2,7 +2,7 @@ package com.APIProject.apiProject.service.security;
 
 import com.APIProject.apiProject.domain.business.Supporter;
 import com.APIProject.apiProject.exceptions.RecordNotFoundException;
-import com.APIProject.apiProject.repository.security.SSupporterRepository;
+import com.APIProject.apiProject.repository.SupporterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,7 +17,7 @@ import java.util.Optional;
 public class SSupporterService implements UserDetailsService {
 
     @Autowired
-    private SSupporterRepository repository;
+    private SupporterRepository repository;
 
     public Supporter save(Supporter user) {
         return repository.save(user);
@@ -46,6 +46,10 @@ public class SSupporterService implements UserDetailsService {
 
     public Optional<Supporter> findByEmail(String email) {
         return repository.findByEmail(email);
+    }
+
+    public Supporter findEmail(String email) {
+        return repository.findEmail(email);
     }
 
     @Override

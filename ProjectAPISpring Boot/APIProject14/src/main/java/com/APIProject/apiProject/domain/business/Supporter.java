@@ -36,7 +36,7 @@ public class Supporter {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_service", nullable = false)
     private SService service;
 

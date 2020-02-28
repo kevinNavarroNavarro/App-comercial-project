@@ -36,9 +36,6 @@ public class SessionService {
     public String buildTokenSupporter(String username) {
         Supporter user = userService.findByEmail(username).get();
 
-//        List<GrantedAuthority> grantedAuthorities = AuthorityUtils
-//                .commaSeparatedStringToAuthorityList(user.getRoles().stream()
-//                        .map(Role::getRole).collect(Collectors.joining(",")));
         String token = Jwts
                 .builder()
                 .setId(JWT_ID)

@@ -5,27 +5,27 @@ import java.util.List;
 public class SupporterDTO {
 
     public static class Response{
-        Integer id;
+        private Integer id;
 
-        String name;
+        private String name;
 
-        String firstSurname;
+        private String firstSurname;
 
-        String secondSurname;
+        private String secondSurname;
 
-        String email;
+        private String email;
 
-        String password;
+        private String password;
 
         private List<Integer>  notes;
 
         private List<Integer>  Issues;
 
-        ServiceDTO.Response service;
+        private ServiceDTO.Response service;
 
-        SupervisorDTO.Response supervisor;
+        private SupervisorDTO.Response supervisor;
 
-        String token;
+        private String token;
 
         public Integer getId() {
             return id;
@@ -117,17 +117,17 @@ public class SupporterDTO {
     }
 
     public static class Request {
-        Integer id;
+        private Integer id;
 
-        String name;
+        private String name;
 
-        String firstSurname;
+        private String firstSurname;
 
-        String secondSurname;
+        private String secondSurname;
 
-        String email;
+        private String email;
 
-        String password;
+        private String password;
 
         private List<Integer>  notes;
 

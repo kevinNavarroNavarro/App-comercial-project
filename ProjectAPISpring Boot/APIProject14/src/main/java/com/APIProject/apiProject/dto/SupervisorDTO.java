@@ -5,25 +5,25 @@ import java.util.List;
 public class SupervisorDTO {
 
     public static class Response {
-        Integer id;
+        private Integer id;
 
-        String name;
+        private String name;
 
-        String firstSurname;
+        private String firstSurname;
 
-        String secondSurname;
+        private String secondSurname;
 
-        String email;
+        private String email;
 
-        String password;
+        private String password;
 
-        List<Integer> Supporters;
+        private List<Integer> Supporters;
 
-        List<Integer> idNotes;
+        private List<Integer> idNotes;
 
-        List<Integer> Issues;
+        private List<Integer> Issues;
 
-        String token;
+        private String token;
 
         private List<Integer> notes;
 
@@ -118,23 +118,23 @@ public class SupervisorDTO {
     }
 
     public static class Request {
-        Integer id;
+        private Integer id;
 
-        String name;
+        private String name;
 
-        String firstSurname;
+        private String firstSurname;
 
-        String secondSurname;
+        private String secondSurname;
 
-        String email;
+        private String email;
 
-        String password;
+        private String password;
 
-        List<Integer> Supporters;
+        private List<Integer> Supporters;
 
-        List<Integer> idNotes;
+        private List<Integer> idNotes;
 
-        List<Integer> Issues;
+        private List<Integer> Issues;
 
         private List<Integer> notes;
 

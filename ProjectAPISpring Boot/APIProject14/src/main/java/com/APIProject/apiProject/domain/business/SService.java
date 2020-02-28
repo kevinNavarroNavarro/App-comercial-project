@@ -2,6 +2,7 @@ package com.APIProject.apiProject.domain.business;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name="Service")
@@ -14,8 +15,8 @@ public class SService {
     @Column(name = "name")
     private String name;
 
-    @OneToOne(mappedBy = "service")
-    private Supporter supporter;
+    @OneToMany(mappedBy = "service")
+    private List<Supporter> supporter;
 
     //Getters and setters
     public Integer getId() { return id; }
@@ -30,11 +31,11 @@ public class SService {
         this.name = name;
     }
 
-    public Supporter getSupporter() {
+    public List<Supporter> getSupporter() {
         return supporter;
     }
 
-    public void setSupporter(Supporter supporter) {
+    public void setSupporter(List<Supporter> supporter) {
         this.supporter = supporter;
     }
 

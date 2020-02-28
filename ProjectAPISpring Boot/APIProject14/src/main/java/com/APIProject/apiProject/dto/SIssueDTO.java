@@ -6,23 +6,23 @@ import java.util.List;
 public class SIssueDTO {
 
     public static class Response {
-        Integer id;
+        private Integer id;
 
-        Integer reportNumber;
+        private Integer reportNumber;
 
-        String classification;
+        private String classification;
 
-        String status;
+        private String status;
 
-        Date reportTimeStamp;
+        private Date reportTimeStamp;
 
-        String resolutionComment;
+        private String resolutionComment;
 
         private List<Integer> notes;
 
-        SupporterDTO.Response idSupporter;
+        private SupporterDTO.Response idSupporter;
 
-        SupervisorDTO.Response idSupervisor;
+        private SupervisorDTO.Response idSupervisor;
 
         public Integer getId() {
             return id;
@@ -98,23 +98,23 @@ public class SIssueDTO {
     }
 
     public static class Request {
-        Integer id;
+        private Integer id;
 
-        Integer reportNumber;
+        private Integer reportNumber;
 
-        String classification;
+        private String classification;
 
-        String status;
+        private String status;
 
-        Date reportTimeStamp;
+        private Date reportTimeStamp;
 
-        String resolutionComment;
+        private String resolutionComment;
 
         private List<Integer>  notes;
 
-        Integer idSupporter;
+        private Integer idSupporter;
 
-        Integer idSupervisor;
+        private Integer idSupervisor;
 
         public Integer getId() {
             return id;

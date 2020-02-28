@@ -1,7 +1,7 @@
 package com.APIProject.apiProject.api;
 
 import com.APIProject.apiProject.domain.business.SIssue;
-import com.APIProject.apiProject.domain.model.SIssueModel;
+import com.APIProject.apiProject.domain.model.IssueModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,33 +16,33 @@ public class IssueClientService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private final String ROOT_URI = "http://192.168.1.101:59267/api/Issue/";
+    private final String ROOT_URI = "http://e185ce9b.ngrok.io/api/Issue/";
 
-    public List<SIssueModel> finAll() {
-        ResponseEntity<SIssueModel[]> response = restTemplate.getForEntity(ROOT_URI, SIssueModel[].class);
+    public List<IssueModel> finAll() {
+        ResponseEntity<IssueModel[]> response = restTemplate.getForEntity(ROOT_URI, IssueModel[].class);
         return Arrays.asList(response.getBody());
     }
 
-    public SIssueModel findById(int id) {
-        ResponseEntity<SIssueModel> response =
+    public IssueModel findById(int id) {
+        ResponseEntity<IssueModel> response =
                 restTemplate.getForEntity(ROOT_URI
-                        + "/" + id, SIssueModel.class);
+                        + "/" + id, IssueModel.class);
         return response.getBody();
     }
 
-    public SIssueModel add(SIssue person) {
-        ResponseEntity<SIssueModel> response =
+    public IssueModel add(SIssue person) {
+        ResponseEntity<IssueModel> response =
                 restTemplate.postForEntity(ROOT_URI,
-                        person, SIssueModel.class);
+                        person, IssueModel.class);
         return response.getBody();
     }
 
-    public void update(SIssueModel issue, int id) {
+    public void update(IssueModel issue, int id) {
         restTemplate
-                .put(ROOT_URI+ "/" + id, issue, SIssueModel.class);
+                .put(ROOT_URI+ "/" + id, issue, IssueModel.class);
     }
 
-    public void delete(Long id) {
+    public void delete(Integer id) {
         restTemplate.delete(ROOT_URI + id);
 
     }

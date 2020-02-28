@@ -23,6 +23,8 @@ public class SupervisorDTO {
 
         List<Integer> Issues;
 
+        String token;
+
         private List<Integer> notes;
 
         public Integer getId() {
@@ -104,6 +106,14 @@ public class SupervisorDTO {
 
         public void setSupporters(List<Integer> supporters) {
             Supporters = supporters;
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
         }
     }
 

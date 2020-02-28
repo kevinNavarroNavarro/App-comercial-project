@@ -3,6 +3,7 @@ package com.APIProject.apiProject;
 import com.APIProject.apiProject.api.IssueClientService;
 import com.APIProject.apiProject.configuration.AppConfig;
 import com.APIProject.apiProject.exceptions.APIProjectException;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class ApiProjectApplication {
 
 	public static void main(String[] args) {
-//		SpringApplication.run(ApiProjectApplication.class, args);
+		SpringApplication.run(ApiProjectApplication.class, args);
 
 		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 

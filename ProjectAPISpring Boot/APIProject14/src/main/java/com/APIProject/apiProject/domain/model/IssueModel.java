@@ -2,22 +2,18 @@ package com.APIProject.apiProject.domain.model;
 
 import static com.APIProject.apiProject.util.JsonUtil.toJson;
 
-public class SIssueModel {
+public class IssueModel {
     private String address;
-    private String client;
-    private String notes;
     private String email;
-    private String phone;
+    private Integer phone;
     private String description;
     private Integer id;
     private Integer idClient;
     private String reportTimestamp;
     private String service;
     private String status;
-    private Integer supportUserAssigned;
 
     //Getters and Setters
-
     public String getAddress() {
         return address;
     }
@@ -26,36 +22,12 @@ public class SIssueModel {
         this.address = address;
     }
 
-    public String getClient() {
-        return client;
-    }
-
-    public void setClient(String client) {
-        this.client = client;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getDescription() {
@@ -106,12 +78,12 @@ public class SIssueModel {
         this.status = status;
     }
 
-    public Integer getSupportUserAssigned() {
-        return supportUserAssigned;
+    public Integer getPhone() {
+        return phone;
     }
 
-    public void setSupportUserAssigned(Integer supportUserAssigned) {
-        this.supportUserAssigned = supportUserAssigned;
+    public void setPhone(Integer phone) {
+        this.phone = phone;
     }
 
     @Override

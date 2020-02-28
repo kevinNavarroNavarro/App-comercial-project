@@ -1,9 +1,13 @@
 package com.APIProject.apiProject.domain.business;
 
+import com.APIProject.apiProject.domain.security.Role;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name="Supporter")
@@ -46,6 +50,9 @@ public class Supporter {
 
     @OneToMany(mappedBy = "supporters", fetch = FetchType.LAZY)
     private List<SIssue> issues;
+
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
     //Getters and Setters
     public Integer getId() {
@@ -134,6 +141,14 @@ public class Supporter {
         this.supervisor = supervisor;
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     // toString
     @Override
     public String toString() {
@@ -149,5 +164,27 @@ public class Supporter {
                 ", supporter=" + supervisor +
                 ", issue=" + issues +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Supporter supporter = (Supporter) o;
+        return Objects.equals(id, supporter.id) &&
+                Objects.equals(name, supporter.name) &&
+                Objects.equals(firstSurname, supporter.firstSurname) &&
+                Objects.equals(secondSurname, supporter.secondSurname) &&
+                Objects.equals(email, supporter.email) &&
+                Objects.equals(password, supporter.password) &&
+                Objects.equals(service, supporter.service) &&
+                Objects.equals(notes, supporter.notes) &&
+                Objects.equals(supervisor, supporter.supervisor) &&
+                Objects.equals(issues, supporter.issues);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, firstSurname, secondSurname, email, password, service, notes, supervisor, issues);
     }
 }

@@ -1,9 +1,12 @@
 package com.APIProject.apiProject.domain.business;
 
+import com.APIProject.apiProject.domain.security.Role;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="Supervisor")
@@ -41,6 +44,9 @@ public class Supervisor {
 
     @OneToMany(mappedBy = "supervisors")
     private List<SIssue> issues;
+
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
 
     //Getters and Setters
@@ -114,6 +120,14 @@ public class Supervisor {
 
     public void setIssues(List<SIssue> issues) {
         this.issues = issues;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     //toString

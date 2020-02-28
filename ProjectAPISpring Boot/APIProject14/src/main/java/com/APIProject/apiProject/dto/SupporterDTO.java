@@ -25,6 +25,8 @@ public class SupporterDTO {
 
         SupervisorDTO.Response supervisor;
 
+        String token;
+
         public Integer getId() {
             return id;
         }
@@ -103,6 +105,14 @@ public class SupporterDTO {
 
         public void setIssues(List<Integer> issues) {
             Issues = issues;
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
         }
     }
 

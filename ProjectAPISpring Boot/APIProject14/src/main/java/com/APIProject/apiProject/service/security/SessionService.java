@@ -22,7 +22,7 @@ public class SessionService {
 
     //SessionService Supporter
     @Autowired
-    private SupporterService userService;
+    private SSupporterService userService;
 
     @Autowired
     private PasswordEncoder encoder;
@@ -58,19 +58,20 @@ public class SessionService {
 
     }
 
+
     //SessionService Supporter
     @Autowired
-    private SupervisorService SupervisorService;
+    private SSupervisorService SSupervisorService;
 
     public boolean validateSupervisor(String email, String password) {
-        Optional<Supervisor> user = SupervisorService.findByEmail(email);
+        Optional<Supervisor> user = SSupervisorService.findByEmail(email);
         if (user.isPresent()) {
             return encoder.matches(password, user.get().getPassword());
         } else return false;
     }
 
     public String buildTokenSupervisor(String username) {
-        Supervisor user = SupervisorService.findByEmail(username).get();
+        Supervisor user = SSupervisorService.findByEmail(username).get();
 
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils
                 .commaSeparatedStringToAuthorityList(user.getRoles().stream()

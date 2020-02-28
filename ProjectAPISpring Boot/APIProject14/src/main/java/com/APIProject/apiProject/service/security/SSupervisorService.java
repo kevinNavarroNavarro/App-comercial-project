@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SupervisorService implements UserDetailsService {
+public class SSupervisorService implements UserDetailsService {
 
     @Autowired
     private SSupervisorRepository repository;

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SupporterService implements UserDetailsService {
+public class SSupporterService implements UserDetailsService {
 
     @Autowired
     private SSupporterRepository repository;
